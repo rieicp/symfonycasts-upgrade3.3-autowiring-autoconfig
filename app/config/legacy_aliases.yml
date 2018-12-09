@@ -4,6 +4,5 @@ services:
     app.security.login_form_authenticator: '@AppBundle\Security\LoginFormAuthenticator'
     app.doctrine.hash_password_listener: '@AppBundle\Doctrine\HashPasswordListener'
     app.form.help_form_extenion: '@AppBundle\Form\TypeExtension\HelpFormExtension'
-    app.encouraging_message_generator: '@AppBundle\Service\MessageGenerator'
 
 
