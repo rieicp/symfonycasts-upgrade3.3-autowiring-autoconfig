@@ -3,6 +3,18 @@
 Well hi there! This repository holds the code and script
 for the Symfony course on KnpUniversity.
 
+## Autowiring logic in symfony 3.3
+首先精确匹配Type-hint类与所有的service-id或aliase
+a)若有一个id或aliase匹配上了，则用之
+b)若未找到，symfony3.3会做以下事情（symonfy4不做，直接报错）：
+```
+在container中找Type-hint类对应的service，或与Type-hint类实现相同接口的service
+1)若找到2个以上，则报错
+2)若找到1个，则用之
+3)若找到0个，则autowire其为service
+```
+
+
 ## Setup
 
 If you've just downloaded the code, congratulations!
