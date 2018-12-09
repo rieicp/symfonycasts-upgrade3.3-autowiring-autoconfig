@@ -24,6 +24,8 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    Knp\Bundle\MarkdownBundle\MarkdownParserInterface: '@markdown.parser'
+
     AppBundle\Service\MarkdownTransformer:
         arguments: ['', '@doctrine_cache.providers.my_markdown_cache']
 
