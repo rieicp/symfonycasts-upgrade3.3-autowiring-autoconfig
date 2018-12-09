@@ -25,7 +25,7 @@ services:
         tags: ['controller.service_arguments']
 
     AppBundle\Service\MarkdownTransformer:
-        arguments: ['@markdown.parser', '@doctrine_cache.providers.my_markdown_cache']
+        arguments: ['', '@doctrine_cache.providers.my_markdown_cache']
 
     AppBundle\Doctrine\HashPasswordListener:
         tags:
