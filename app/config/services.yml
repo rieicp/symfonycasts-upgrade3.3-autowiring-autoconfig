@@ -39,4 +39,4 @@ services:
         arguments:
             - ['You can do it!', 'Dude, sweet!', 'Woot!']
             - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
-        public: true
+
