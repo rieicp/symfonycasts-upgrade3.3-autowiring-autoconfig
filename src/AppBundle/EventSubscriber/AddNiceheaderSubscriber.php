@@ -9,26 +9,24 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class AddNiceheaderSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
-    /**
-     * @var MessageManager
-     */
     private $messageManager;
+    private $isShowDiscouratingMessage;
 
-    public function __construct(LoggerInterface $logger, MessageManager $messageManager)
+    public function __construct(LoggerInterface $logger, MessageManager $messageManager, $isShowDiscouratingMessage)
     {
         $this->logger = $logger;
         $this->messageManager = $messageManager;
+        $this->isShowDiscouratingMessage = $isShowDiscouratingMessage;
     }
 
     public function onKernelResponse(FilterResponseEvent $event)
     {
         $this->logger->info('Adding a nice header!');
 
-        $message = $this->messageManager->getEncouragingMessage();
+        $message = $this->isShowDiscouratingMessage?
+            $this->messageManager->getDiscouragingMessage() :
+            $this->messageManager->getEncouragingMessage();
 
         $event->getResponse()
             ->headers->set('X-NICE-MESSAGE', $message);
